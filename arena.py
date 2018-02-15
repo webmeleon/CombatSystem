@@ -52,20 +52,17 @@ class Arena(object):
                 if held.get_gewAktion() == 3:
                     while True:
                         HeldFaehigkeit = held.FaehigkeitWaehlen()
-                        if held.get_gewFaehigkeit() == 0:
+                        if not held.get_gewFaehigkeit() == 0:
                             break
-                if held.get_gewAktion() == 0 and held.get_gewFaehigkeit() == 0:
+                if not held.get_gewAktion() == 0 and held.get_gewFaehigkeit() == 0:
                     break
 
             # Ki
             while True:
                 KIAktion = ki.AktionWaehlen()
                 if ki.get_gewAktion() == 3:
-                    while True:
-                        KIFaehigkeit = ki.FaehigkeitWaehlen()
-                        if ki.get_gewFaehigkeit() == 0:
-                            break
-                if ki.get_gewAktion() == 0 and ki.get_gewFaehigkeit() == 0:
+                    KIFaehigkeit = ki.FaehigkeitWaehlen()
+                if not ki.get_gewAktion() == 0 and ki.get_gewFaehigkeit() == 0:
                     break
             # Auswahl Kampfaktion Ende
 

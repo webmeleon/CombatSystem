@@ -7,9 +7,9 @@ def main():
 
     neueArena = Arena()
 
-    m = Monster(100, 70, 10, 3, 5, 2, "Bisum")
-    m.set_gewAktion(1)
-    print("Test:->" + str(m.Ausfuehren(0)))
+    #m = Monster(100, 70, 10, 3, 5, 2, "Bisum")
+    #m.set_gewAktion(1)
+    #print("Test:->" + str(m.Ausfuehren(0)))
 
     neueArena.Kampf()
 

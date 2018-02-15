@@ -188,9 +188,9 @@ class Character(ABC):
         # Entscheiden welche Stati aktiv sind und somit über den gelieferten Angriffsfaktor
         if krit and self._KraftSammelnAktiv > 0 and self._RaserAktiv:
             return self._angriff * 8
-        elif (krit == True and self._KraftSammelnAktiv > 0) or (krit == True and self._RaserAktiv == True):
+        elif (krit and self._KraftSammelnAktiv > 0) or (krit and self._RaserAktiv):
             return self._angriff * 4
-        elif self._KraftSammelnAktiv > 0 or self._RaserAktiv == True:
+        elif self._KraftSammelnAktiv > 0 or self._RaserAktiv:
             return self._angriff * 2
         else:
             return self._angriff
@@ -245,6 +245,7 @@ class Character(ABC):
     # Methode welche die gewählte Aktion oder Fähigkeit aufruft
     # liefert den ausgeteilten Schaden zurück
     def Ausfuehren(self, gsVerteidiger):
+        print("FÜHRT AUS!!!")
             # Gewählte Fähigkeit aufrufen
         if self._gewFaehigkeit != 0:
             # switch/case Ersatz, da kein switch in Python möglich
@@ -261,6 +262,7 @@ class Character(ABC):
             if 5 < self._gewFaehigkeit < 1:
                 return 0
         else:
+            print("nicht Ausführen")
             # gewählte Aktion aufrufen
             if self._gewAktion == 1:
                 return self.Angreifen(gsVerteidiger)
