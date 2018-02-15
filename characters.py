@@ -183,6 +183,9 @@ class Character(ABC):
 
         clear()
         printL(self._name + " greift seinen Gegner an.")
+
+        printL("Krit JA - NEIN: -> " + str(krit))
+
         if krit:
             printL(self._name + " landet einen kritischen Treffer")
         # Entscheiden welche Stati aktiv sind und somit über den gelieferten Angriffsfaktor
@@ -201,10 +204,10 @@ class Character(ABC):
     def Verteidigen(self):
         clear()
         printL(self._name + " verteidigt sich")
-        # self._VerteidigenAktiv = True
+        self._VerteidigenAktiv = True
         return 0
 
-    def Krafsammeln(self):
+    def Kraftsammeln(self):
         clear()
         printL(self._name + " sammelt seine Kräfte")
         self._KraftSammelnAktiv = 3
@@ -220,7 +223,7 @@ class Character(ABC):
     def Unterbrechen(self, gsVerteidiger):
         clear()
         printL(self._name + " versucht seinen Gegner zu unterbrechen")
-        return (self.Angreifen(gsVerteidiger) / 2)
+        return self.Angreifen(gsVerteidiger) / 2
 
 
     def UnterbrochenWerden(self):
@@ -241,18 +244,21 @@ class Character(ABC):
     def Raub(self, gsVerteidiger):
         clear()
         printL(self._name + " versucht seinen Gegner zu berauben.")
-        return (((self.Angreifen(gsVerteidiger)) * 80) / 100)
+        return ((self.Angreifen(gsVerteidiger)) * 80) / 100
 
 
     # Methode welche die gewählte Aktion oder Fähigkeit aufruft
     # liefert den ausgeteilten Schaden zurück
     def Ausfuehren(self, gsVerteidiger):
-        print("FÜHRT AUS!!!")
+        print("Ausführen AKTIV!!! --- >")
+        input("Enter Ausführe")
             # Gewählte Fähigkeit aufrufen
         if self._gewFaehigkeit != 0:
+            print("Faehigkeit wird gewählt: -->" + str(self._gewFaehigkeit) + "gsVerteidiger --> " + str(gsVerteidiger))
+            input("Enter Faehigkeit")
             # switch/case Ersatz, da kein switch in Python möglich
             if self._gewFaehigkeit == 1:
-                return self.Krafsammeln()
+                return self.Kraftsammeln()
             if self._gewFaehigkeit == 2:
                 return self.Anvisieren()
             if self._gewFaehigkeit == 3:
@@ -261,15 +267,16 @@ class Character(ABC):
                 return self.Raserei(gsVerteidiger)
             if self._gewFaehigkeit == 5:
                 return self.Raub(gsVerteidiger)
-            if 5 < self._gewFaehigkeit < 1:
+            if 6 <= self._gewFaehigkeit <= 0:
                 return 0
         else:
-            print("nicht Ausführen")
+            print("gewAktion: --> " + str(self._gewAktion))
+            input("Enter Aktion")
             # gewählte Aktion aufrufen
             if self._gewAktion == 1:
                 return self.Angreifen(gsVerteidiger)
             if self._gewAktion == 2:
                 return self.Verteidigen()
-            if self._gewAktion != 1 or self._gewAktion != 2:
+            if 3 <= self._gewAktion <= 0:
                 return 0
         # Ende der Methode
