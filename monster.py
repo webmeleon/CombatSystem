@@ -15,9 +15,9 @@ class Monster(Character):
             self._gewAktion = 1
             return "Angriff"
         else:
-            clear()
+            input("AktionsWahl")
             # Ermitteln einer Zufallszahl zwischen 1 und 4
-            eingabe = random.randint(1, 4)
+            eingabe = random.randint(1, 3)
             # Auswertung der Zufallszahl
             if eingabe == 1:
                 self._gewAktion = 1
@@ -45,7 +45,7 @@ class Monster(Character):
         clear()
         printL("Bitte Aktion wählen.(1 = Kraft sammeln, 2 = Anvisieren, 3 = Unterbrechen, 4 = Raserei, 5 = Raub)")
         # Ermitteln einer Zufallszahl zwischen 1 und 6
-        eingabe = random.randint(1, 6)
+        eingabe = random.randint(1, 5)
         # Auswertung der Zufallszahl
         if eingabe == 1:
             self._gewFaehigkeit = 1
@@ -71,6 +71,6 @@ class Monster(Character):
             printL("Auswahl nicht gültig")
             printL("Auswahl: " + str(eingabe))
             # input()
-            self._gewAktion = 0
+            self._gewFaehigkeit = 0
             return "ungültig"
     # Fähigkeit Ende
