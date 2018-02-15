@@ -43,7 +43,7 @@ class Arena(object):
         printL(held.get_name() + " trifft auf " + ki.get_name() + ". Der Kampf beginnt")
         # input("Push Enter")
         # Beginn einer Kampfschleife, welche so lange abgearbeitet wird, bis einer der Kampfteilnehmer keine Lebenspunkte mehr hat.
-        while held.get_lebenspunkte() > 0 and ki.get_lebenspunkte() > 0:
+        while (held.get_lebenspunkte() > 0) and (ki.get_lebenspunkte() > 0):
 
             # wählen der nächsten Kampfaktion
             # Held
@@ -139,6 +139,8 @@ class Arena(object):
                 # Ende der Prüfung
 
             # Kampfaktionen sind abgearbeitet
+
+
             # Die temporären Statusveränderungen werden um 1 dekrementiert
             held.set_kraftsammelnAktiv(held.get_kraftsammelnAktiv() - 1)
             ki.set_kraftsammelnAktiv(ki.get_kraftsammelnAktiv() - 1)

@@ -49,27 +49,27 @@ class Monster(Character):
         # Auswertung der Zufallszahl
         if eingabe == 1:
             self._gewFaehigkeit = 1
-            printL("Auswahl: " + str(eingabe))
+            printL("Auswahl: " + str(eingabe) + " Fähigkeit: " + str(self._gewFaehigkeit))
             return "Kraft sammeln"
         elif eingabe == 2:
             self._gewFaehigkeit = 2
-            printL("Auswahl: " + str(eingabe))
+            printL("Auswahl: " + str(eingabe) + " Fähigkeit: " + str(self._gewFaehigkeit))
             return "Anvisieren"
         elif eingabe == 3:
             self._gewFaehigkeit = 3
-            printL("Auswahl: " + str(eingabe))
+            printL("Auswahl: " + str(eingabe) + " Fähigkeit: " + str(self._gewFaehigkeit))
             return "Unterbrechen"
         elif eingabe == 4:
             self._gewFaehigkeit = 4
-            printL("Auswahl: " + str(eingabe))
+            printL("Auswahl: " + str(eingabe) + " Fähigkeit: " + str(self._gewFaehigkeit))
             return "Raserei"
         elif eingabe == 5:
             self._gewFaehigkeit = 5
-            printL("Auswahl: " + str(eingabe))
+            printL("Auswahl: " + str(eingabe) + " Fähigkeit: " + str(self._gewFaehigkeit))
             return "Raub"
         else:
             printL("Auswahl nicht gültig")
-            printL("Auswahl: " + str(eingabe))
+            printL("Auswahl: " + str(eingabe) + " Fähigkeit: " + str(self._gewFaehigkeit))
             # input()
             self._gewFaehigkeit = 0
             return "ungültig"

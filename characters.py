@@ -253,21 +253,33 @@ class Character(ABC):
         print("Ausführen AKTIV!!! --- >")
         input("Enter Ausführe")
             # Gewählte Fähigkeit aufrufen
-        if self._gewFaehigkeit != 0:
+        if self.get_gewFaehigkeit() != 0:
             print("Faehigkeit wird gewählt: -->" + str(self._gewFaehigkeit) + "gsVerteidiger --> " + str(gsVerteidiger))
             input("Enter Faehigkeit")
             # switch/case Ersatz, da kein switch in Python möglich
             if self._gewFaehigkeit == 1:
+                print("1 Faehigkeit")
+                input()
                 return self.Kraftsammeln()
             if self._gewFaehigkeit == 2:
+                print("2 Faehigkeit")
+                input()
                 return self.Anvisieren()
             if self._gewFaehigkeit == 3:
+                print("3 Faehigkeit")
+                input()
                 return self.Unterbrechen(gsVerteidiger)
             if self._gewFaehigkeit == 4:
+                print("4 Faehigkeit")
+                input()
                 return self.Raserei(gsVerteidiger)
             if self._gewFaehigkeit == 5:
+                print("5 Faehigkeit")
+                input()
                 return self.Raub(gsVerteidiger)
             if 6 <= self._gewFaehigkeit <= 0:
+                print("KEINE Faehigkeit")
+                input()
                 return 0
         else:
             print("gewAktion: --> " + str(self._gewAktion))
