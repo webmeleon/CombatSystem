@@ -36,7 +36,7 @@ class Arena(object):
         # Im Hauptspiel sind diese Werte variabel und werden von außen übergeben.
 
         # held = Spieler(300, 300, 30, 25, 20, 15, "Yoda", 8, 10, 3500)
-        held = Monster(300, 200, 30, 25, 20, 15, "Yoda")
+        held = Spieler(300, 200, 30, 25, 20, 15, "Yoda", 8, 10, 3500)
         ki = Monster(200, 200, 25, 20, 15, 10, "Bisasam")
 
         # Kampfbeginn wird angesagt
