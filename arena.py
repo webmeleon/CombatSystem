@@ -41,7 +41,8 @@ class Arena(object):
 
         # Kampfbeginn wird angesagt
         printL(held.get_name() + " trifft auf " + ki.get_name() + ". Der Kampf beginnt")
-        # input("Push Enter")
+
+        input("Push Enter")
         # Beginn einer Kampfschleife, welche so lange abgearbeitet wird, bis einer der Kampfteilnehmer keine Lebenspunkte mehr hat.
         while (held.get_lebenspunkte() > 0) and (ki.get_lebenspunkte() > 0):
 
@@ -50,10 +51,9 @@ class Arena(object):
             while True:
                 HeldAktion = held.AktionWaehlen()
                 if held.get_gewAktion() == 3:
-                    while True:
-                        HeldFaehigkeit = held.FaehigkeitWaehlen()
-                        if not held.get_gewFaehigkeit() == 0:
-                            break
+                    HeldFaehigkeit = held.FaehigkeitWaehlen()
+                    if not held.get_gewFaehigkeit() == 0:
+                        break
                 if not held.get_gewAktion() == 0 and held.get_gewFaehigkeit() == 0:
                     break
 
@@ -62,8 +62,11 @@ class Arena(object):
                 KIAktion = ki.AktionWaehlen()
                 if ki.get_gewAktion() == 3:
                     KIFaehigkeit = ki.FaehigkeitWaehlen()
+                    if not ki.get_gewFaehigkeit() == 0:
+                        break
                 if not ki.get_gewAktion() == 0 and ki.get_gewFaehigkeit() == 0:
                     break
+
             # Auswahl Kampfaktion Ende
 
             # Abarbeiten der gewählten Kampfaktion
