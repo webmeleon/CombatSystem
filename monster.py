@@ -1,4 +1,4 @@
-from kampfsystem.characters import *
+from characters import *
 
 # Konstruktor mit Basiskonstruktor
 class Monster(Character):

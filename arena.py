@@ -1,5 +1,5 @@
-from kampfsystem.spieler import *
-from kampfsystem.monster import *
+from spieler import *
+from monster import *
 
 class Arena(object):
     # Statische Methode -> ermittelt ob zuerst Held oder Ki am Zug ist

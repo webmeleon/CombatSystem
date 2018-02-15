@@ -1,5 +1,5 @@
 import random
-from kampfsystem.tools import *
+from tools import *
 # Import für Abstrakte classen und Methoden
 # ABC wird an class übergeben!
 from abc import ABC, abstractmethod

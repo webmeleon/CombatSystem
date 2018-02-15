@@ -1,4 +1,4 @@
-from kampfsystem.arena import *
+from arena import *
 
 def main():
 
