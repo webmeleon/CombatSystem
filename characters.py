@@ -169,7 +169,7 @@ class Character(ABC):
         else:
             # Berechnung ohne Anvisieren
             ergebnisVerteidiger = random.randint(1, 13) + (2 * gsVerteidiger)
-            ergebnisAngreifer = random.randint(1, 13) + (2 * self._geschicklichkeit)
+            ergebnisAngreifer = random.randint(1, 13) + self._geschicklichkeit
             ergebnis = ergebnisVerteidiger - ergebnisAngreifer
             if ergebnis > 0:
                 if random.randint(1, 101) < self._geschicklichkeit:
@@ -186,11 +186,13 @@ class Character(ABC):
         if krit:
             printL(self._name + " landet einen kritischen Treffer")
         # Entscheiden welche Stati aktiv sind und somit über den gelieferten Angriffsfaktor
-        if krit and self._KraftSammelnAktiv > 0 and self._RaserAktiv:
+        if krit and (self._KraftSammelnAktiv > 0) and self._RaserAktiv:
             return self._angriff * 8
-        elif (krit and self._KraftSammelnAktiv > 0) or (krit and self._RaserAktiv):
+        elif ((krit and (self._KraftSammelnAktiv > 0)) or (krit and self._RaserAktiv)):
             return self._angriff * 4
-        elif self._KraftSammelnAktiv > 0 or self._RaserAktiv:
+        elif (self._KraftSammelnAktiv > 0) or self._RaserAktiv:
+            return self._angriff * 2
+        elif krit:
             return self._angriff * 2
         else:
             return self._angriff
@@ -199,26 +201,26 @@ class Character(ABC):
     def Verteidigen(self):
         clear()
         printL(self._name + " verteidigt sich")
-        self._VerteidigenAktiv = True
+        # self._VerteidigenAktiv = True
         return 0
 
     def Krafsammeln(self):
         clear()
         printL(self._name + " sammelt seine Kräfte")
-        self._KraftSammelnAktiv = True
+        self._KraftSammelnAktiv = 3
         return 0
 
     def Anvisieren(self):
         clear()
         printL(self._name + " visiert seinen Gegner an.")
         input()
-        self._AnvisierenAktiv = True
+        self._AnvisierenAktiv = 3
         return 0
 
     def Unterbrechen(self, gsVerteidiger):
         clear()
         printL(self._name + " versucht seinen Gegner zu unterbrechen")
-        return self.Angreifen((gsVerteidiger) / 2)
+        return (self.Angreifen(gsVerteidiger) / 2)
 
 
     def UnterbrochenWerden(self):

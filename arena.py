@@ -84,6 +84,8 @@ class Arena(object):
                 # Die Ki wurde getroffen und Ihre Werte wurden manipuliert.
 
                 # Prüfen ob die Ki besiegt ist
+                if ki.get_lebenspunkte() <= 0:
+                    break
                 # Jetzt wird die Ki ihren Zug ausführen
 
                 # Ermittelt den Schaden der von der Ki zugeführt wird auf Grundlage
